@@ -32,3 +32,14 @@ Retrieve (or as parameter in another service's constructor):
 ```csharp
 var sunriseSunsetClient = serviceProvider.GetService<ISunriseSunsetClient>();
 ```
+
+Configure in appsettings.json or similar as follows:
+```json lines
+{
+  "SunriseSunset":
+  {
+    "Latitude": 51.4347790,
+    "Longitude": 13.410530    
+  }
+}
+```
