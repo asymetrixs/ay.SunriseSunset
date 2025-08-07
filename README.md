@@ -9,9 +9,15 @@ Usage:
 ```csharp
 // Optionally pass ILogger<SunriseSunsetClient> for exmaple via dependency injection
 var sunriseSunsetClient = new SunriseSunsetClient();
+var timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("Europe/Berlin");
+var date = DateOnly.FromDateTime(DateTime.Now.Date); 
 
 // Optionally pass a Cancellation Token
-var result = await sunriseSunsetClient.Fetch(51.4347790, 13.410530);
+var result = await sunriseSunsetClient.Fetch(
+    51.4347790,
+    13.410530,
+    date,
+    timeZoneInfo);
 
 // Don't forget to dispose
 sunriseSunsetClient.Dispose();
