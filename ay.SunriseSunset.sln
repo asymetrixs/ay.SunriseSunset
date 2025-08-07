@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ay.SunriseSunset", "ay.SunriseSunset\ay.SunriseSunset.csproj", "{6C1F955E-7984-417E-BC8E-83D42AD67B24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_misc", "_misc", "{17CD0CB1-F5FE-4F93-8748-9DB837560AE5}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C1F955E-7984-417E-BC8E-83D42AD67B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C1F955E-7984-417E-BC8E-83D42AD67B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C1F955E-7984-417E-BC8E-83D42AD67B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C1F955E-7984-417E-BC8E-83D42AD67B24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

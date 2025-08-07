@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Title>ay.SunriseSunset Library</Title>
+        <Description>Library to connect to api.sunrise-sunset.org.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/asymetrixs/ay.SunriseSunset</PackageProjectUrl>
+        <PackageId>ay.SunriseSunset</PackageId>
+        <Authors>Damian Wolgast</Authors>
+        <Copyright>Copyright © Damian Wolgast 2025</Copyright>
+        <PackageTags>sunrise;sunset;integration;library</PackageTags>
+        <Version>0.1.0</Version>
+        <AssemblyVersion>0.1.0</AssemblyVersion>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Configurations>Debug;Release</Configurations>
+        <LangVersion>latest</LangVersion>
+        <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
+        <PathMap>$(AppOutputBase)=$(MSBuildProjectName)/</PathMap>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.8"/>
+    </ItemGroup>
+
+</Project>
