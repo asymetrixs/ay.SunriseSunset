@@ -1,28 +1,27 @@
 ﻿using System.Net.Http.Json;
 using ay.SunriseSunset.Abstractions;
-using ay.SunriseSunset.Models;
 using Microsoft.Extensions.Logging;
 
 namespace ay.SunriseSunset;
 
-public class SunsetSunriseClient : ISunsetSunriseClient
+public class SunriseSunsetClient : ISunsetSunriseClient
 {
-    private readonly ILogger<SunsetSunriseClient>? _logger;
+    private readonly ILogger<SunriseSunsetClient>? _logger;
 
     private readonly HttpClient _httpClient = new();
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="SunsetSunriseClient"/> class.
+    /// Initializes a new instance of the <see cref="SunriseSunsetClient"/> class.
     /// </summary>
-    public SunsetSunriseClient()
+    public SunriseSunsetClient()
     {
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="SunsetSunriseClient"/> class.
+    /// Initializes a new instance of the <see cref="SunriseSunsetClient"/> class.
     /// </summary>
     /// <param name="logger">Logger</param>
-    public SunsetSunriseClient(ILogger<SunsetSunriseClient> logger)
+    public SunriseSunsetClient(ILogger<SunriseSunsetClient> logger)
     {
         _logger = logger;
     }
@@ -34,14 +33,15 @@ public class SunsetSunriseClient : ISunsetSunriseClient
     /// <param name="longitude">Longitude</param>
     /// <param name="cancellationToken">Optional: Cancellation Token</param>
     /// <returns></returns>
-    public async Task<Root?> Fetch(decimal latitude, decimal longitude, CancellationToken cancellationToken = default)
+    public async Task<Models.SunriseSunset?> Fetch(decimal latitude, decimal longitude,
+        CancellationToken cancellationToken = default)
     {
         var apiEndpointUrl = $"https://api.sunrise-sunset.org/json?lat={latitude}&lng={longitude}&formatted=0";
 
         try
         {
             return await _httpClient
-                .GetFromJsonAsync<Root>(apiEndpointUrl, cancellationToken)
+                .GetFromJsonAsync<Models.SunriseSunset>(apiEndpointUrl, cancellationToken)
                 .ConfigureAwait(false);
         }
         catch (Exception e)
