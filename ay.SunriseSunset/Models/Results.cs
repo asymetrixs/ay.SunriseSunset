@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using ay.SunriseSunset.Converters;
 
 namespace ay.SunriseSunset.Models;
 
@@ -14,7 +15,8 @@ public record Results
     public required DateTimeOffset SolarNoon { get; set; }
 
     [JsonPropertyName("day_length")]
-    public required int DayLength { get; set; }
+    [JsonConverter(typeof(DayConverter))]
+    public required TimeSpan DayLength { get; set; }
 
     [JsonPropertyName("civil_twilight_begin")]
     public required DateTimeOffset CivilTwilightBegin { get; set; }
