@@ -27,18 +27,23 @@ public class SunriseSunsetClient : ISunriseSunsetClient
     /// <param name="latitude">Latitude</param>
     /// <param name="longitude">Longitude</param>
     /// <param name="date">Date</param>
+    /// <param name="timeZoneInfo">Timezone info</param>
     /// <param name="cancellationToken">Optional: Cancellation Token</param>
     /// <returns></returns>
     public Task<SunriseSunsetData?> Fetch(decimal latitude,
         decimal longitude,
         DateOnly date,
+        TimeZoneInfo? timeZoneInfo = null,
         CancellationToken cancellationToken = default)
     {
         return Fetch(new SunriseSunsetConfiguration
-        {
-            Latitude = latitude,
-            Longitude = longitude,
-        }, date, cancellationToken);
+            {
+                Latitude = latitude,
+                Longitude = longitude,
+            },
+            date,
+            timeZoneInfo,
+            cancellationToken);
     }
 
     /// <summary>
@@ -46,17 +51,27 @@ public class SunriseSunsetClient : ISunriseSunsetClient
     /// </summary>
     /// <param name="configuration">Configuration</param>
     /// <param name="date">Date</param>
+    /// <param name="timeZoneInfo">Timezone info</param>
     /// <param name="cancellationToken">Optional: Cancellation Token</param>
     /// <returns></returns>
     public async Task<SunriseSunsetData?> Fetch(SunriseSunsetConfiguration configuration,
         DateOnly date,
+        TimeZoneInfo? timeZoneInfo = null,
         CancellationToken cancellationToken = default)
     {
+        timeZoneInfo ??= TimeZoneInfo.Utc;
+
+        if (timeZoneInfo.Id == TimeZoneInfo.Local.Id)
+        {
+            _logger?.LogWarning("Requesting time for timezone info 'local': The server does not know where you are!");
+        }
+
         var apiEndpointUrl = $"https://api.sunrise-sunset.org/json" +
                              $"?lat={configuration.Latitude}" +
                              $"&lng={configuration.Longitude}" +
                              $"&date={date.ToString("yyyy-MM-dd")}" +
-                             $"&formatted=0";
+                             $"&formatted=0" +
+                             $"&tzid={timeZoneInfo.Id}";
 
         try
         {

@@ -9,9 +9,11 @@ public interface ISunriseSunsetClient : IDisposable
         decimal latitude,
         decimal longitude,
         DateOnly date,
+        TimeZoneInfo? timeZoneInfo = null,
         CancellationToken cancellationToken = default);
 
     Task<SunriseSunsetData?> Fetch(SunriseSunsetConfiguration sunriseSunsetConfiguration,
         DateOnly date,
+        TimeZoneInfo? timeZoneInfo = null,
         CancellationToken cancellationToken = default);
 }
