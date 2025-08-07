@@ -1,10 +1,11 @@
 ﻿using System.Net.Http.Json;
+using ay.SunriseSunset.Abstractions;
 using ay.SunriseSunset.Models;
 using Microsoft.Extensions.Logging;
 
 namespace ay.SunriseSunset;
 
-public class SunsetSunriseClient : IDisposable
+public class SunsetSunriseClient : ISunsetSunriseClient
 {
     private readonly ILogger<SunsetSunriseClient>? _logger;
 

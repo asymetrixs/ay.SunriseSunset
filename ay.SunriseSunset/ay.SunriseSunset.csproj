@@ -9,8 +9,8 @@
         <Authors>Damian Wolgast</Authors>
         <Copyright>Copyright © Damian Wolgast 2025</Copyright>
         <PackageTags>sunrise;sunset;integration;library</PackageTags>
-        <Version>0.1.0</Version>
-        <AssemblyVersion>0.1.0</AssemblyVersion>
+        <Version>0.1.1</Version>
+        <AssemblyVersion>0.1.1</AssemblyVersion>
         <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
