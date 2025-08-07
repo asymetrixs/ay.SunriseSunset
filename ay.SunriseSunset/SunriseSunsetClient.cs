@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ay.SunriseSunset;
 
-public class SunriseSunsetClient : ISunsetSunriseClient
+public class SunriseSunsetClient : ISunriseSunsetClient
 {
     private readonly ILogger<SunriseSunsetClient>? _logger;
 
