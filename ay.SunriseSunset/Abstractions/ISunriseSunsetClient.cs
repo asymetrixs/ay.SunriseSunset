@@ -1,7 +1,17 @@
+using ay.SunriseSunset.Configuration;
+using ay.SunriseSunset.Models;
+
 namespace ay.SunriseSunset.Abstractions;
 
 public interface ISunriseSunsetClient : IDisposable
 {
-    Task<Models.SunriseSunset?> Fetch(decimal latitude, decimal longitude,
+    Task<SunriseSunsetData?> Fetch(
+        decimal latitude,
+        decimal longitude,
+        DateOnly date,
+        CancellationToken cancellationToken = default);
+
+    Task<SunriseSunsetData?> Fetch(SunriseSunsetConfiguration sunriseSunsetConfiguration,
+        DateOnly date,
         CancellationToken cancellationToken = default);
 }

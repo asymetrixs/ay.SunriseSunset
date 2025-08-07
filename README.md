@@ -16,3 +16,19 @@ var result = await sunriseSunsetClient.Fetch(51.4347790, 13.410530);
 // Don't forget to dispose
 sunriseSunsetClient.Dispose();
 ```
+
+## Service Provider
+
+Register:
+
+```csharp
+// configuration is IConfigurationRoot
+services.SunriseSunsetSetup(configuration);
+
+```
+
+Retrieve (or as parameter in another service's constructor):
+
+```csharp
+var sunriseSunsetClient = serviceProvider.GetService<ISunriseSunsetClient>();
+```

@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace ay.SunriseSunset.Models;
 
-public record SunriseSunset
+public record SunriseSunsetData
 {
     [JsonPropertyName("results")]
     public required Results Results { get; set; }
